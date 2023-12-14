@@ -11,7 +11,7 @@ pub fn poc() {
             .extract::<&PyList>().unwrap();
 
         for psu in psus {
-            let voltage: &str = psu.call_method0("get_voltage").unwrap().extract::<&str>().unwrap();
+            let voltage: f32 = psu.call_method0("get_voltage").unwrap().extract::<f32>().unwrap();
             println!("{voltage:#?}");
         };
     });
