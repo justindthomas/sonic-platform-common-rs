@@ -10,7 +10,10 @@ pub fn poc() {
             .call_method0("get_all_psus").unwrap()
             .extract::<&PyList>().unwrap();
 
-        println!("{psus:#?}");
+        for psu in psus {
+            let voltage: &str = psu.call_method0("get_voltage").unwrap().extract::<&str>().unwrap();
+            println!("{voltage:#?}");
+        };
     });
 }
 
